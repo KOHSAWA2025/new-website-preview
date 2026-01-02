@@ -6,6 +6,55 @@ import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
 
+const MODEL_RELEASE_V04 = {
+  slug: "release-zoooo-betacell-expert-7b-v0-4-baseline",
+  title: "Release of ZOOOO-BetaCell-Expert-7B-v0.4 Baseline Model",
+  dateDisplay: "January 2, 2026",
+  link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.4",
+  body: `ZOOOO-BetaCell-Expert-7B-v0.4 is a domain-specialized expert model focused on pancreatic beta cell biology.
+
+This release represents an independently derived virtual beta-cell expert model,
+developed based on Os’ Lab’s proprietary ZOOOO model
+and jointly informed by domain knowledge and technological collaboration
+with Oda Pharmaceutical’s PPN technology.
+
+Version v0.4 is built on top of the ZOOOO (mini version) model.
+ZOOOO is a closed-source, self-designed foundational model developed by Os’ Lab,
+with its architecture and training philosophy centered on structural reasoning
+and constraint-consistent learning.
+
+ZOOOO-BetaCell-Expert-7B-v0.4 is released as a frozen baseline model
+for the ZOOOO virtual beta-cell line.
+It is not intended to be continuously updated,
+but to serve as a stable and well-defined reference point
+for subsequent versions (v0.5 and beyond).
+
+Future iterations will be developed incrementally on top of this baseline,
+with a focus on improved causal alignment,
+reasoning stability, and domain-specific refinement.
+
+---
+
+### Comparison with v0.1
+
+Compared to v0.1, v0.4 represents a decisive shift
+in both model foundation and stability.
+
+While v0.1 was constructed by adapting existing external models
+using proprietary datasets,
+v0.4 is developed directly on top of Os’ Lab’s self-designed
+ZOOOO (mini version) model,
+jointly optimized with domain-specific data.
+
+As a result, v0.4 demonstrates significantly improved
+internal consistency, stability, and causal reasoning alignment,
+establishing a much stronger and more reliable baseline
+for virtual beta-cell modeling.
+
+Model page:
+https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.4`,
+} as const;
+
 const MODEL_RELEASE = {
   slug: "release-zoooo-betacell-expert-7b-v0-1",
   title: "Release: ZOOOO-BetaCell-Expert-7B-v0.1",
@@ -218,10 +267,11 @@ export default async function EnNewsDetailPage({
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
   const isModelRelease = slug === MODEL_RELEASE.slug;
+  const isModelReleaseV04 = slug === MODEL_RELEASE_V04.slug;
 
   const category: NewsCategory | null = publication
     ? "research"
-    : isModelRelease
+    : isModelRelease || isModelReleaseV04
       ? "product"
       : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
         ? "society"
@@ -232,6 +282,8 @@ export default async function EnNewsDetailPage({
       ? ANNOUNCEMENT.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
+        : isModelReleaseV04
+          ? MODEL_RELEASE_V04.title
         : isModelRelease
           ? MODEL_RELEASE.title
         : isNewYearsMessage
@@ -242,6 +294,8 @@ export default async function EnNewsDetailPage({
       ? ANNOUNCEMENT.date
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
+        : isModelReleaseV04
+          ? MODEL_RELEASE_V04.dateDisplay
         : isModelRelease
           ? MODEL_RELEASE.dateDisplay
         : isNewYearsMessage
@@ -314,6 +368,29 @@ export default async function EnNewsDetailPage({
             <div>{renderParagraphs(NEW_YEARS_MESSAGE.body)}</div>
 
             <div className="pt-6 whitespace-pre-line">{NEW_YEARS_MESSAGE.signature}</div>
+          </div>
+        ) : isModelReleaseV04 ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">Category</span>
+              <br />
+              {categoryLabel(category ?? "product")}
+            </p>
+
+            <div>{renderParagraphs(MODEL_RELEASE_V04.body)}</div>
+
+            <p>
+              <span className="text-neutral-700">Link</span>
+              <br />
+              <a
+                href={MODEL_RELEASE_V04.link}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-black/20 hover:text-neutral-950"
+              >
+                {MODEL_RELEASE_V04.link}
+              </a>
+            </p>
           </div>
         ) : isModelRelease ? (
           <div className="space-y-6">

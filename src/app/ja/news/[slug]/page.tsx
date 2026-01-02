@@ -6,6 +6,44 @@ import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
 
+const MODEL_RELEASE_V04 = {
+  slug: "release-zoooo-betacell-expert-7b-v0-4-baseline",
+  title: "ZOOOO-BetaCell-Expert-7B-v0.4 ベースラインモデル公開のお知らせ",
+  dateDisplay: "2026年1月2日",
+  link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.4",
+  body: `ZOOOO-BetaCell-Expert-7B-v0.4 は、膵臓ベータ細胞の生物学に焦点を当てた領域特化型エキスパートモデルです。
+
+本リリースは、Os’ Lab の独自開発による ZOOOO モデルを基盤として導出された、仮想ベータ細胞エキスパートモデルの独立派生版です。
+織田製薬株式会社の PPN 技術との技術協力および領域知見の反映により、共同で情報的に裏付けられています。
+
+v0.4 は ZOOOO（mini version）モデルの上に構築されています。
+ZOOOO は Os’ Lab が自社設計・開発したクローズドソースの基盤モデルであり、
+そのアーキテクチャと学習思想は、構造的推論および制約整合学習に基づいています。
+
+ZOOOO-BetaCell-Expert-7B-v0.4 は、ZOOOO 仮想ベータ細胞系列のための凍結されたベースラインモデルとして公開します。
+継続的な更新を目的とするものではなく、
+v0.5 以降の後続バージョンに対して、安定かつ明確に定義された参照点を提供することを目的としています。
+
+今後の反復は、このベースラインの上に段階的に積み上げる形で開発され、
+因果整合性、推論の安定性、および領域特化の精緻化に重点を置きます。
+
+---
+
+### v0.1 との比較
+
+v0.1 と比較すると、v0.4 はモデルの基盤と安定性の双方において決定的な転換を示します。
+
+v0.1 は、外部の既存モデルを独自データセットで適応させることで構築されましたが、
+v0.4 は Os’ Lab の自社設計である ZOOOO（mini version）モデルの上に直接構築され、
+領域特化データとともに共同最適化されています。
+
+その結果、v0.4 は内部整合性、安定性、および因果推論の整合性が大きく向上しており、
+仮想ベータ細胞モデリングのための、より強固で信頼できるベースラインを確立します。
+
+モデルページ：
+https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.4`,
+} as const;
+
 const MODEL_RELEASE = {
   slug: "release-zoooo-betacell-expert-7b-v0-1",
   title: "公開：ZOOOO-BetaCell-Expert-7B-v0.1",
@@ -222,10 +260,11 @@ export default async function JaNewsDetailPage({
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
   const isModelRelease = slug === MODEL_RELEASE.slug;
+  const isModelReleaseV04 = slug === MODEL_RELEASE_V04.slug;
 
   const category: NewsCategory | null = publication
     ? "research"
-    : isModelRelease
+    : isModelRelease || isModelReleaseV04
       ? "product"
       : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
         ? "society"
@@ -236,6 +275,8 @@ export default async function JaNewsDetailPage({
       ? ANNOUNCEMENT.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
+        : isModelReleaseV04
+          ? MODEL_RELEASE_V04.title
         : isModelRelease
           ? MODEL_RELEASE.title
         : isNewYearsMessage
@@ -247,6 +288,8 @@ export default async function JaNewsDetailPage({
       ? ANNOUNCEMENT.date
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
+        : isModelReleaseV04
+          ? MODEL_RELEASE_V04.dateDisplay
         : isModelRelease
           ? MODEL_RELEASE.dateDisplay
         : isNewYearsMessage
@@ -319,6 +362,29 @@ export default async function JaNewsDetailPage({
             <div>{renderParagraphs(NEW_YEARS_MESSAGE.body)}</div>
 
             <div className="pt-6 whitespace-pre-line">{NEW_YEARS_MESSAGE.signature}</div>
+          </div>
+        ) : isModelReleaseV04 ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">分類</span>
+              <br />
+              {categoryLabel(category ?? "product")}
+            </p>
+
+            <div>{renderParagraphs(MODEL_RELEASE_V04.body)}</div>
+
+            <p>
+              <span className="text-neutral-700">リンク</span>
+              <br />
+              <a
+                href={MODEL_RELEASE_V04.link}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-black/20 hover:text-neutral-950"
+              >
+                {MODEL_RELEASE_V04.link}
+              </a>
+            </p>
           </div>
         ) : isModelRelease ? (
           <div className="space-y-6">
