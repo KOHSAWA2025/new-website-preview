@@ -20,6 +20,32 @@ body {
     "Segoe UI Emoji";
 }
 
+/* Responsive safety nets */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Avoid accidental horizontal scroll from long words/links */
+body {
+  overflow-x: hidden;
+}
+
+* {
+  overflow-wrap: break-word;
+}
+
+/* Disable fixed backgrounds on small screens (better mobile Safari behavior) */
+@media (max-width: 768px) {
+  html,
+  body {
+    background-attachment: scroll !important;
+  }
+}
+
 ::selection {
   background: rgba(0, 0, 0, 0.12);
 }

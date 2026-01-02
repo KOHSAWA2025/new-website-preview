@@ -6,12 +6,27 @@ import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
 
+const MODEL_RELEASE = {
+  slug: "release-zoooo-betacell-expert-7b-v0-1",
+  title: "公開：ZOOOO-BetaCell-Expert-7B-v0.1",
+  dateDisplay: "2026年1月2日",
+  link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1",
+  body: `モデル「ZOOOO-BetaCell-Expert-7B-v0.1」を公開しました。
+
+本モデルは Virtual Cell のエキスパートモデルであり、os’ lab の ZOOOO フレームワークと、Oda Pharmaceuticals の P.P.N. 技術を組み合わせて共同で開発しました。ベースモデルは BioMistral-7B で、ベータ細胞に関する推論に特化しています。
+
+本モデルは Hugging Face 上に公開済みです：
+https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1
+
+あわせて、ZOOOO モデルのオープンソース（特別に調整した）版の公開についても検討を進める予定です。`,
+} as const;
+
 const ANNOUNCEMENT = {
   slug: "meeting-with-diet-member-eisuke-mori",
   title: "森英介議員との会談で描く日本のAI未来図",
   date: "2024-11-22",
-  body: `2024年11月22日、オーズラボ株式会社の織田憲法（当時）特別顧問と、
-東京大学大学院システム創成学の大澤幸生教授は、
+  body: `2024年11月22日、オーズラボ株式会社の関係者と、
+東京大学大学院システム創成学の関係者は、
 自由民主党所属の衆議院議員で元法務大臣、
 前衆議院憲法審査会長を務めた森英介議員を訪問しました。
 
@@ -24,7 +39,7 @@ const ANNOUNCEMENT = {
 日本および国際社会における将来的な応用可能性について、
 社会的規範や公共的視点を踏まえた議論が行われました。
 
-大澤教授および織田顧問からは、
+同席者からは、
 これまでの人工知能研究の動向、
 共同研究の成果、
 ならびにAI技術を用いた
@@ -43,14 +58,14 @@ AI技術がもたらす革新の可能性について
 日本の技術革新を支える基盤となり得るものであり、
 本分野のさらなる発展に期待を寄せる旨を述べられました。
 
-大澤教授は、
+同席者は、
 「AI技術は単なる技術的進化にとどまらず、
 人とのインタラクションを適切に設計することで、
 社会課題に対して有効な解決策を提供できる」
 とコメントし、
 知識共有の重要性を強調しました。
 
-織田顧問は、
+別の同席者は、
 「本日の会談を通じて、
 我々の技術が日本社会にどのように貢献できるのかを
 再確認する機会となった」
@@ -206,18 +221,23 @@ export default async function JaNewsDetailPage({
   const isAnnouncement = slug === ANNOUNCEMENT.slug;
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
+  const isModelRelease = slug === MODEL_RELEASE.slug;
 
   const category: NewsCategory | null = publication
     ? "research"
-    : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
-      ? "society"
-      : null;
+    : isModelRelease
+      ? "product"
+      : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
+        ? "society"
+        : null;
 
   const title = publication?.title
     ?? (isAnnouncement
       ? ANNOUNCEMENT.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
+        : isModelRelease
+          ? MODEL_RELEASE.title
         : isNewYearsMessage
           ? NEW_YEARS_MESSAGE.title
           : slug);
@@ -227,6 +247,8 @@ export default async function JaNewsDetailPage({
       ? ANNOUNCEMENT.date
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
+        : isModelRelease
+          ? MODEL_RELEASE.dateDisplay
         : isNewYearsMessage
           ? NEW_YEARS_MESSAGE.dateDisplay
           : "日付は追って掲載します。");
@@ -234,7 +256,7 @@ export default async function JaNewsDetailPage({
   return (
     <div className="pt-10 pb-12">
       <div className="max-w-[720px]">
-        <h1 className="whitespace-pre-line text-balance text-3xl font-semibold leading-tight tracking-tight text-neutral-950 sm:text-4xl">
+        <h1 className="whitespace-pre-line break-words text-balance text-3xl font-semibold leading-tight tracking-tight text-neutral-950 sm:text-4xl">
           {title}
         </h1>
         <p className="mt-6 text-pretty text-base leading-8 text-neutral-700">
@@ -297,6 +319,29 @@ export default async function JaNewsDetailPage({
             <div>{renderParagraphs(NEW_YEARS_MESSAGE.body)}</div>
 
             <div className="pt-6 whitespace-pre-line">{NEW_YEARS_MESSAGE.signature}</div>
+          </div>
+        ) : isModelRelease ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">分類</span>
+              <br />
+              {categoryLabel(category ?? "product")}
+            </p>
+
+            <div>{renderParagraphs(MODEL_RELEASE.body)}</div>
+
+            <p>
+              <span className="text-neutral-700">リンク</span>
+              <br />
+              <a
+                href={MODEL_RELEASE.link}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-black/20 hover:text-neutral-950"
+              >
+                {MODEL_RELEASE.link}
+              </a>
+            </p>
           </div>
         ) : isAnnouncement ? (
           <div className="space-y-6">

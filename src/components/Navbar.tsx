@@ -26,18 +26,18 @@ export function Navbar({ locale }: { locale: Locale }) {
   const isEn = locale === "en";
 
   return (
-    <header className="py-8">
-      <nav className="flex items-baseline justify-between gap-8">
+    <header className="py-6 md:py-8">
+      <nav className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between md:gap-8">
         <Link
           href={`/${locale}`}
-          className="text-sm font-medium tracking-[0.28em] text-neutral-950"
+          className="text-sm font-medium tracking-[0.14em] text-neutral-950 break-words md:tracking-[0.28em]"
           aria-label="os’ lab home"
         >
           {locale === "ja" ? "オーズラボ株式会社" : "os’ lab co., ltd"}
         </Link>
 
-        <div className="flex flex-wrap items-center justify-end gap-x-8 gap-y-2">
-          <div className="flex items-center gap-3 text-xs tracking-[0.24em] text-neutral-600">
+        <div className="flex w-full flex-wrap items-center justify-start gap-x-4 gap-y-2 md:w-auto md:justify-end md:gap-x-8">
+          <div className="flex items-center gap-3 text-xs tracking-[0.18em] text-neutral-600 md:tracking-[0.24em]">
             <Link
               href={enHref}
               className={
@@ -61,13 +61,16 @@ export function Navbar({ locale }: { locale: Locale }) {
             </Link>
           </div>
 
-          <div className="h-4 w-px bg-black/10" aria-hidden="true" />
+          <div
+            className="hidden h-4 w-px bg-black/10 md:block"
+            aria-hidden="true"
+          />
 
           {navItems.map((item) => (
             <Link
               key={item.slug}
               href={`/${locale}/${item.slug}`}
-              className="text-sm text-neutral-800 transition-colors hover:text-neutral-950"
+              className="py-2 text-sm text-neutral-800 transition-colors hover:text-neutral-950 md:py-0"
             >
               {item.label[locale]}
             </Link>

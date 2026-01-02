@@ -17,6 +17,12 @@ export const metadata: Metadata = {
 
 const items = [
   {
+    slug: "release-zoooo-betacell-expert-7b-v0-1",
+    date: "2026-01-02",
+    title: "公開：ZOOOO-BetaCell-Expert-7B-v0.1",
+    category: "product",
+  },
+  {
     slug: "publication-support-field-neural-representation-learner-framework",
     date: "2025-11-26",
     title:
@@ -85,7 +91,7 @@ export default function JaNewsPage() {
                   href={`/ja/news/${item.slug}`}
                   className="text-neutral-900 underline decoration-black/20 hover:text-neutral-950"
                 >
-                  <span className="whitespace-pre-line">{item.title}</span>
+                  <span className="whitespace-pre-line break-words">{item.title}</span>
                 </Link>
               </p>
               <p className="mt-2 text-sm text-neutral-700">

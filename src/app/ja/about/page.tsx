@@ -45,18 +45,7 @@ export default function JaAboutPage() {
       <Section title="役員・顧問">
         <div className="space-y-6">
           <div>
-            <p className="text-neutral-700">会長</p>
-            <p className="mt-2">
-              <Link
-                href="/ja/about/oda-kenpou"
-                className="text-neutral-900 underline decoration-black/20 hover:text-neutral-950"
-              >
-                織田憲法
-              </Link>
-            </p>
-          </div>
-          <div>
-            <p className="text-neutral-700">代表取締役社長</p>
+            <p className="text-neutral-700">CEO</p>
             <p className="mt-2">
               <Link
                 href="/ja/about/kenji-ohsawa"
@@ -68,14 +57,6 @@ export default function JaAboutPage() {
           </div>
           <div>
             <p className="text-neutral-700">技術顧問</p>
-            <p className="mt-2">
-              <Link
-                href="/ja/about/yukio-ohsawa"
-                className="text-neutral-900 underline decoration-black/20 hover:text-neutral-950"
-              >
-                大澤幸生
-              </Link>
-            </p>
             <p className="mt-2">
               <Link
                 href="/ja/about/shinichi-matsumoto"
@@ -92,7 +73,7 @@ export default function JaAboutPage() {
             href="/ja/about/president"
             className="text-neutral-800 underline decoration-black/20 hover:text-neutral-950"
           >
-            社長メッセージ
+            CEOメッセージ
           </Link>
         </p>
       </Section>

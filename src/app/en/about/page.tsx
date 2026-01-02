@@ -43,18 +43,6 @@ export default function EnAboutPage() {
       <Section title="Leadership & advisors">
         <div className="space-y-6">
           <div>
-            <p className="text-neutral-700">Chairman</p>
-            <p className="mt-2">
-              <Link
-                href="/en/about/oda-kenpou"
-                className="text-neutral-900 underline decoration-black/20 hover:text-neutral-950"
-              >
-                Kenpou ODA
-              </Link>
-            </p>
-          </div>
-
-          <div>
             <p className="text-neutral-700">CEO</p>
             <p className="mt-2">
               <Link
@@ -68,14 +56,6 @@ export default function EnAboutPage() {
 
           <div>
             <p className="text-neutral-700">Technical Advisors</p>
-            <p className="mt-2">
-              <Link
-                href="/en/about/yukio-ohsawa"
-                className="text-neutral-900 underline decoration-black/20 hover:text-neutral-950"
-              >
-                Yukio OHSAWA
-              </Link>
-            </p>
             <p className="mt-2">
               <Link
                 href="/en/about/shinichi-matsumoto"
@@ -92,7 +72,7 @@ export default function EnAboutPage() {
             href="/en/about/president"
             className="text-neutral-800 underline decoration-black/20 hover:text-neutral-950"
           >
-            Message from the President
+            Message from the CEO
           </Link>
         </p>
       </Section>

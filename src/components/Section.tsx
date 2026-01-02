@@ -18,7 +18,7 @@ export function Section({
           <h2 className="text-xs font-medium tracking-[0.32em] text-neutral-600">
             {uppercase ? title.toUpperCase() : title}
           </h2>
-          <div className="mt-7 text-[15px] leading-8 text-neutral-900 sm:text-base">
+          <div className="mt-7 text-base leading-7 text-neutral-900 sm:text-base sm:leading-8">
             {children}
           </div>
         </div>

@@ -12,6 +12,7 @@ export default function EnLayout({ children }: { children: ReactNode }) {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        // iOS Safari has known issues with fixed backgrounds; we disable it on small screens via CSS.
         backgroundAttachment: "fixed",
       }}
     >

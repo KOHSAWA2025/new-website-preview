@@ -6,14 +6,29 @@ import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
 
+const MODEL_RELEASE = {
+  slug: "release-zoooo-betacell-expert-7b-v0-1",
+  title: "Release: ZOOOO-BetaCell-Expert-7B-v0.1",
+  dateDisplay: "January 2, 2026",
+  link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1",
+  body: `We have released the model “ZOOOO-BetaCell-Expert-7B-v0.1”.
+
+This is a Virtual Cell expert model, developed jointly using os’ lab’s ZOOOO framework and Oda Pharmaceuticals’ P.P.N. technology. The base model is BioMistral-7B, and the release is specialized for beta-cell reasoning.
+
+The model is publicly hosted on Hugging Face:
+https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1
+
+In parallel, we plan to explore releasing an open-source, specially tuned version of the ZOOOO model.`,
+} as const;
+
 const ANNOUNCEMENT = {
   slug: "discussing-japans-ai-future-with-diet-member-eisuke-mori",
   title: "Discussing Japan’s AI Future with Diet Member Eisuke Mori",
   journal: "",
   date: "2024-11-22",
   url: "",
-  body: `On November 22, 2024, Oda Kenpou, Special Advisor to os’ lab co., ltd,
-together with Professor Yukio Ohsawa of the University of Tokyo,
+  body: `On November 22, 2024, members of os’ lab co., ltd,
+together with members of the University of Tokyo,
 visited Mr. Eisuke Mori, Member of the House of Representatives,
 former Minister of Justice, and former Chair of the Constitutional Review Committee.
 
@@ -23,7 +38,7 @@ has long worked at the intersection of technology and public policy.
 The meeting focused on the future applications and societal implications
 of artificial intelligence in Japan and in the global context.
 
-During the discussion, Professor Ohsawa and Mr. Oda
+During the discussion, the participants
 outlined recent trends in AI research,
 ongoing collaborative projects,
 and the social significance of AI-driven approaches.
@@ -39,11 +54,11 @@ Mr. Mori expressed his appreciation for the originality of the technologies pres
 noting their potential importance
 as part of the foundation supporting Japan’s technological innovation.
 
-Professor Ohsawa emphasized that AI is not merely a technical advancement,
+One participant emphasized that AI is not merely a technical advancement,
 but a tool that—when properly designed for human interaction—
 can offer powerful solutions to complex societal challenges.
 
-Mr. Oda commented that the meeting reaffirmed
+Another participant commented that the meeting reaffirmed
 how their technologies could contribute to Japanese society,
 and expressed a strong commitment to advancing next-generation modeling technologies
 through closer collaboration between academia, industry, and government.`,
@@ -202,18 +217,23 @@ export default async function EnNewsDetailPage({
   const isAnnouncement = slug === ANNOUNCEMENT.slug;
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
+  const isModelRelease = slug === MODEL_RELEASE.slug;
 
   const category: NewsCategory | null = publication
     ? "research"
-    : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
-      ? "society"
-      : null;
+    : isModelRelease
+      ? "product"
+      : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
+        ? "society"
+        : null;
 
   const title = publication?.title
     ?? (isAnnouncement
       ? ANNOUNCEMENT.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
+        : isModelRelease
+          ? MODEL_RELEASE.title
         : isNewYearsMessage
           ? NEW_YEARS_MESSAGE.title
           : slug);
@@ -222,6 +242,8 @@ export default async function EnNewsDetailPage({
       ? ANNOUNCEMENT.date
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
+        : isModelRelease
+          ? MODEL_RELEASE.dateDisplay
         : isNewYearsMessage
           ? NEW_YEARS_MESSAGE.dateDisplay
           : "Date will be added.");
@@ -229,7 +251,7 @@ export default async function EnNewsDetailPage({
   return (
     <div className="pt-10 pb-12">
       <div className="max-w-[720px]">
-        <h1 className="whitespace-pre-line text-balance text-3xl font-semibold leading-tight tracking-tight text-neutral-950 sm:text-4xl">
+        <h1 className="whitespace-pre-line break-words text-balance text-3xl font-semibold leading-tight tracking-tight text-neutral-950 sm:text-4xl">
           {title}
         </h1>
         <p className="mt-6 text-pretty text-base leading-8 text-neutral-700">
@@ -292,6 +314,29 @@ export default async function EnNewsDetailPage({
             <div>{renderParagraphs(NEW_YEARS_MESSAGE.body)}</div>
 
             <div className="pt-6 whitespace-pre-line">{NEW_YEARS_MESSAGE.signature}</div>
+          </div>
+        ) : isModelRelease ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">Category</span>
+              <br />
+              {categoryLabel(category ?? "product")}
+            </p>
+
+            <div>{renderParagraphs(MODEL_RELEASE.body)}</div>
+
+            <p>
+              <span className="text-neutral-700">Link</span>
+              <br />
+              <a
+                href={MODEL_RELEASE.link}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-black/20 hover:text-neutral-950"
+              >
+                {MODEL_RELEASE.link}
+              </a>
+            </p>
           </div>
         ) : isAnnouncement ? (
           <div className="space-y-6">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   },
   description:
     "Compute the cell. Discover the drug. os’ lab co., ltd builds the ZOOOO foundation model for medicine.",
+};
+
+// Ensure correct mobile rendering (prevents 980px-layout scaling on phones).
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
