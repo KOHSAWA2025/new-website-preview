@@ -13,7 +13,7 @@ const MODEL_RELEASE = {
   link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1",
   body: `モデル「ZOOOO-BetaCell-Expert-7B-v0.1」を公開しました。
 
-本モデルは Virtual Cell のエキスパートモデルであり、os’ lab の ZOOOO フレームワークと、Oda Pharmaceuticals の P.P.N. 技術を組み合わせて共同で開発しました。ベースモデルは BioMistral-7B で、ベータ細胞に関する推論に特化しています。
+本モデルは Virtual Cell のエキスパートモデルであり、os’ lab の ZOOOO フレームワークと、織田製薬株式会社 の P.P.N. 技術を組み合わせて共同で開発しました。
 
 本モデルは Hugging Face 上に公開済みです：
 https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1

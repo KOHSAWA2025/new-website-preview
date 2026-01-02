@@ -13,7 +13,7 @@ const MODEL_RELEASE = {
   link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1",
   body: `We have released the model “ZOOOO-BetaCell-Expert-7B-v0.1”.
 
-This is a Virtual Cell expert model, developed jointly using os’ lab’s ZOOOO framework and Oda Pharmaceuticals’ P.P.N. technology. The base model is BioMistral-7B, and the release is specialized for beta-cell reasoning.
+This is a Virtual Cell expert model, developed jointly using os’ lab’s ZOOOO framework and Oda Pharmaceuticals’ P.P.N. technology. 
 
 The model is publicly hosted on Hugging Face:
 https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-7B-v0.1
