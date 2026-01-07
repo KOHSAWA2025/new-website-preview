@@ -43,7 +43,11 @@ export default function EnAboutPage() {
       <Section title="Leadership & advisors">
         <div className="space-y-6">
           <div>
-            <p className="text-neutral-700">CEO</p>
+            <p className="text-neutral-900">Chairman Jin TAKATSUKASA</p>
+          </div>
+
+          <div>
+            <p className="text-neutral-700">President & CEO</p>
             <p className="mt-2">
               <Link
                 href="/en/about/kenji-ohsawa"

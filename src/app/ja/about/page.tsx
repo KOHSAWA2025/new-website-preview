@@ -45,7 +45,11 @@ export default function JaAboutPage() {
       <Section title="役員・顧問">
         <div className="space-y-6">
           <div>
-            <p className="text-neutral-700">CEO</p>
+            <p className="text-neutral-900">取締役会　会長　鷹司　仁</p>
+          </div>
+
+          <div>
+            <p className="text-neutral-700">取締役社長　CEO</p>
             <p className="mt-2">
               <Link
                 href="/ja/about/kenji-ohsawa"
