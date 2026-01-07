@@ -45,7 +45,7 @@ export default function JaAboutPage() {
       <Section title="役員・顧問">
         <div className="space-y-6">
           <div>
-            <p className="text-neutral-900">取締役会　会長　鷹司　仁</p>
+            <p className="text-neutral-900">取締役会長　鷹司　仁</p>
           </div>
 
           <div>
