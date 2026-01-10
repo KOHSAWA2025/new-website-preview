@@ -6,6 +6,25 @@ import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
 
+const MODEL_RELEASE_V061 = {
+  slug: "research-preview-zoooo-betacell-expert-8b-v0-6-1",
+  title: "ZOOOO-BetaCell-Expert-8B v0.6.1（研究プレビュー）公開のお知らせ",
+  dateDisplay: "2026年1月10日",
+  link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-8B-v0.6.1",
+  bodyEn: `We have released ZOOOO-BetaCell-Expert-8B v0.6.1, a research-preview model focused on mechanistic reasoning in pancreatic β cell biology.
+
+This version emphasizes causality-first analysis, explicit boundary conditions, and structured mechanistic judgment, moving beyond pathway listing or descriptive summaries. v0.6.1 shows improved consistency in distinguishing correlation from causation and in reasoning about experimental relevance, making it suitable for hypothesis discussion and experimental design review.
+
+Limitations remain: response structure may not always fully converge on complex questions, long-horizon dialogue stability is still limited, and the model should not be used for clinical or production purposes. v0.6.1 represents a stable milestone toward our v1.0 goal of an expert-level scientific reasoning collaborator.
+`,
+  bodyJa: `膵臓β細胞生物学における機構的推論に焦点を当てた研究プレビューモデルとして、ZOOOO-BetaCell-Expert-8B v0.6.1 を公開しました。
+
+本バージョンは、因果を起点とする分析、明示的な境界条件、構造化された機構的判断を重視し、経路の列挙や記述的要約を超えることを目指します。v0.6.1 では、相関と因果の識別、および実験的関連性に関する推論の一貫性が改善されており、仮説の議論および実験設計のレビューに適しています。
+
+制約は残ります：応答構造が複雑な問いに対して常に十分に収束するとは限らず、長い対話における安定性も依然として限定的です。また、本モデルは臨床用途または本番用途に使用すべきではありません。v0.6.1 は、専門家レベルの科学推論協働者という v1.0 の目標に向けた安定したマイルストーンです。
+`,
+} as const;
+
 const MODEL_RELEASE_V04 = {
   slug: "release-zoooo-betacell-expert-7b-v0-4-baseline",
   title: "ZOOOO-BetaCell-Expert-7B-v0.4 ベースラインモデル公開のお知らせ",
@@ -232,7 +251,8 @@ function categoryLabel(category: NewsCategory) {
   }
 }
 
-function renderParagraphs(text: string) {
+function renderParagraphs(text?: string) {
+  if (!text) return null;
   return text
     .trim()
     .split(/\n\s*\n/)
@@ -259,11 +279,14 @@ export default async function JaNewsDetailPage({
   const isAnnouncement = slug === ANNOUNCEMENT.slug;
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
+  const isModelReleaseV061 = slug === MODEL_RELEASE_V061.slug;
   const isModelRelease = slug === MODEL_RELEASE.slug;
   const isModelReleaseV04 = slug === MODEL_RELEASE_V04.slug;
 
   const category: NewsCategory | null = publication
     ? "research"
+    : isModelReleaseV061
+      ? "research"
     : isModelRelease || isModelReleaseV04
       ? "product"
       : isAnnouncement || isNewYearsMessage || isNewYearsMessage2026
@@ -275,6 +298,8 @@ export default async function JaNewsDetailPage({
       ? ANNOUNCEMENT.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
+        : isModelReleaseV061
+          ? MODEL_RELEASE_V061.title
         : isModelReleaseV04
           ? MODEL_RELEASE_V04.title
         : isModelRelease
@@ -288,6 +313,8 @@ export default async function JaNewsDetailPage({
       ? ANNOUNCEMENT.date
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
+        : isModelReleaseV061
+          ? MODEL_RELEASE_V061.dateDisplay
         : isModelReleaseV04
           ? MODEL_RELEASE_V04.dateDisplay
         : isModelRelease
@@ -338,6 +365,27 @@ export default async function JaNewsDetailPage({
               </a>
             </p>
             <p className="text-neutral-700">本文は追って掲載します。</p>
+          </div>
+        ) : isModelReleaseV061 ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">分類</span>
+              <br />
+              {categoryLabel(category ?? "research")}
+            </p>
+
+            <div>{renderParagraphs(MODEL_RELEASE_V061.bodyJa)}</div>
+
+            <p>
+              <a
+                href={MODEL_RELEASE_V061.link}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-black/20 hover:text-neutral-950"
+              >
+                {MODEL_RELEASE_V061.link}
+              </a>
+            </p>
           </div>
         ) : isNewYearsMessage2026 ? (
           <div className="space-y-6">

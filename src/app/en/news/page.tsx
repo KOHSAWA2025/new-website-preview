@@ -17,6 +17,12 @@ export const metadata: Metadata = {
 
 const items = [
   {
+    slug: "research-preview-zoooo-betacell-expert-8b-v0-6-1",
+    date: "2026-01-10",
+    title: "ZOOOO-BetaCell-Expert-8B v0.6.1 (Research Preview) Release",
+    category: "research",
+  },
+  {
     slug: "release-zoooo-betacell-expert-7b-v0-4-baseline",
     date: "2026-01-02",
     title: "Release of ZOOOO-BetaCell-Expert-7B-v0.4 Baseline Model",
