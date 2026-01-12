@@ -2,9 +2,70 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { Section } from "@/components/Section";
+import feedbackImage from "@/pic/feedback.png";
 import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
+
+const FEEDBACK_SUMMARY = {
+  slug: "stage-based-user-feedback-summary-metabolic-support-food",
+  title:
+    "Stage-Based User Feedback Summary for a Food-Grade Product Designed to Support Glucose-Related Metabolic Health",
+  dateDisplay: "January 12, 2026",
+  body: `Overview
+This product is a dietary supplement developed based on the ZOOOO computational modeling framework by Os’ Lab, in combination with PPN manufacturing technology from Oda Pharmaceutical.
+It is designed to provide metabolic support through multi-pathway nutritional intervention and is not a pharmaceutical product.
+To better understand real-world usage patterns, Os’ Lab conducted a stage-based observational summary of user feedback and selected health-related indicators collected during routine use.
+The following content presents a non-clinical, non-interventional summary intended for product research transparency and technical communication only.
+
+Observation Design
+- Participants: 20 adult users
+- Product category: Dietary supplement (Food-Grade)
+- Usage period: Approximately 90 days
+- Data type: Self-reported usage records and routine health check results
+- Measured indicator: HbA1c (measured at three time points)
+
+This summary does not constitute a clinical trial and does not imply diagnostic, therapeutic, or preventive effects.
+
+Summary of Observed Trends
+Across the observation period, all participants showed a consistent downward trend in HbA1c values across three sequential measurements.
+Key characteristics of the observed data include:
+- Consistency: No participant showed a sustained upward trend during the observation period
+- Continuity: Changes occurred gradually across stages rather than as abrupt short-term fluctuations
+- Convergence: Individual trajectories showed relatively limited dispersion over time
+
+From an aggregate perspective, the group-level data demonstrated a uniform directional trend, suggesting stable engagement and a relatively homogeneous response pattern among users.
+
+Interpretation (Technical Perspective)
+From a modeling standpoint, the ZOOOO framework emphasizes:
+- Long-term state evolution rather than short-term response
+- Multi-pathway interaction across metabolic processes
+- Structural stability over isolated intervention effects
+
+Within this conceptual framework, the observed trends may be consistent with a sustained metabolic support profile over a time scale aligned with HbA1c turnover characteristics.
+However, causal relationships cannot be inferred, and further controlled studies would be required to establish mechanistic conclusions.
+
+Data Transparency and Limitations
+- Sample size is limited
+- No control group was included
+- Lifestyle factors were not standardized
+- Data reflect real-world usage rather than experimental conditions
+
+Accordingly, the results should be interpreted as exploratory and descriptive, not confirmatory.
+
+Conclusion
+This stage-based observation provides an initial view into how the product performs under real-world usage conditions.
+The consistency and directionality of the observed trends support continued technical validation and future structured studies, while reinforcing Os’ Lab’s commitment to transparent, responsible data communication.
+
+Regulatory and Use Disclaimer
+This product is a Food-Grade product, not a drug.
+It is not intended to diagnose, treat, cure, or prevent any disease.
+The information presented here is for research and informational purposes only and should not be considered medical advice.
+Individuals with health concerns should consult qualified healthcare professionals.
+
+For inquiries or further technical discussion, please feel free to contact us by email.
+`,
+} as const;
 
 const MODEL_RELEASE_V061 = {
   slug: "research-preview-zoooo-betacell-expert-8b-v0-6-1",
@@ -16,12 +77,6 @@ const MODEL_RELEASE_V061 = {
 This version emphasizes causality-first analysis, explicit boundary conditions, and structured mechanistic judgment, moving beyond pathway listing or descriptive summaries. v0.6.1 shows improved consistency in distinguishing correlation from causation and in reasoning about experimental relevance, making it suitable for hypothesis discussion and experimental design review.
 
 Limitations remain: response structure may not always fully converge on complex questions, long-horizon dialogue stability is still limited, and the model should not be used for clinical or production purposes. v0.6.1 represents a stable milestone toward our v1.0 goal of an expert-level scientific reasoning collaborator.
-`,
-  bodyJa: `膵臓β細胞生物学における機構的推論に焦点を当てた研究プレビューモデルとして、ZOOOO-BetaCell-Expert-8B v0.6.1 を公開しました。
-
-本バージョンは、因果を起点とする分析、明示的な境界条件、構造化された機構的判断を重視し、経路の列挙や記述的要約を超えることを目指します。v0.6.1 では、相関と因果の識別、および実験的関連性に関する推論の一貫性が改善されており、仮説の議論および実験設計のレビューに適しています。
-
-制約は残ります：応答構造が複雑な問いに対して常に十分に収束するとは限らず、長い対話における安定性も依然として限定的です。また、本モデルは臨床用途または本番用途に使用すべきではありません。v0.6.1 は、専門家レベルの科学推論協働者という v1.0 の目標に向けた安定したマイルストーンです。
 `,
 } as const;
 
@@ -283,6 +338,7 @@ export default async function EnNewsDetailPage({
   const { slug } = await params;
 
   const publication = PUBLICATIONS.find((p) => p.slug === slug);
+  const isFeedbackSummary = slug === FEEDBACK_SUMMARY.slug;
   const isAnnouncement = slug === ANNOUNCEMENT.slug;
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
@@ -292,6 +348,8 @@ export default async function EnNewsDetailPage({
 
   const category: NewsCategory | null = publication
     ? "research"
+    : isFeedbackSummary
+      ? "product"
     : isModelReleaseV061
       ? "research"
     : isModelRelease || isModelReleaseV04
@@ -303,6 +361,8 @@ export default async function EnNewsDetailPage({
   const title = publication?.title
     ?? (isAnnouncement
       ? ANNOUNCEMENT.title
+      : isFeedbackSummary
+        ? FEEDBACK_SUMMARY.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
         : isModelReleaseV061
@@ -317,6 +377,8 @@ export default async function EnNewsDetailPage({
   const date = publication?.date
     ?? (isAnnouncement
       ? ANNOUNCEMENT.date
+      : isFeedbackSummary
+        ? FEEDBACK_SUMMARY.dateDisplay
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
         : isModelReleaseV061
@@ -339,6 +401,17 @@ export default async function EnNewsDetailPage({
           {date}
         </p>
       </div>
+
+      {isFeedbackSummary ? (
+        <div className="pt-8">
+          <Image
+            src={feedbackImage}
+            alt="User feedback summary"
+            className="h-auto w-full"
+            priority
+          />
+        </div>
+      ) : null}
 
       <Section title="Details">
         {publication ? (
@@ -371,6 +444,16 @@ export default async function EnNewsDetailPage({
               </a>
             </p>
             <p className="text-neutral-700">Content will be added.</p>
+          </div>
+        ) : isFeedbackSummary ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">Category</span>
+              <br />
+              {categoryLabel(category ?? "product")}
+            </p>
+
+            <div>{renderParagraphs(FEEDBACK_SUMMARY.body)}</div>
           </div>
         ) : isModelReleaseV061 ? (
           <div className="space-y-6">

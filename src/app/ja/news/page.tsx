@@ -17,6 +17,13 @@ export const metadata: Metadata = {
 
 const items = [
   {
+    slug: "stage-based-user-feedback-summary-metabolic-support-food",
+    date: "2026-01-12",
+    title:
+      "血糖関連の代謝健康のサポートを目的とした食品グレード製品に関する段階別ユーザーフィードバック要約",
+    category: "product",
+  },
+  {
     slug: "research-preview-zoooo-betacell-expert-8b-v0-6-1",
     date: "2026-01-10",
     title: "ZOOOO-BetaCell-Expert-8B v0.6.1（研究プレビュー）公開のお知らせ",

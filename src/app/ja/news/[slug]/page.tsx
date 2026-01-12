@@ -2,21 +2,76 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { Section } from "@/components/Section";
+import feedbackImage from "@/pic/feedback.png";
 import moriImage from "@/pic/20241122.png";
 
 type Params = { slug: string };
+
+const FEEDBACK_SUMMARY = {
+  slug: "stage-based-user-feedback-summary-metabolic-support-food",
+  title:
+    "血糖関連の代謝健康のサポートを目的とした食品グレード製品に関する段階別ユーザーフィードバック要約",
+  dateDisplay: "2026年1月12日",
+  body: `概要
+本製品は、Os’ Lab による ZOOOO 計算モデリングフレームワークに基づき、織田製薬の PPN 製造技術と組み合わせて開発された栄養補助食品です。
+多経路の栄養介入によって代謝サポートを提供することを目的としており、医薬品ではありません。
+実際の使用状況のパターンを把握するため、Os’ Lab は、日常使用の中で収集されたユーザーフィードバックおよび選定した健康関連指標について、段階別の観察的要約を実施しました。
+以下の内容は、製品研究の透明性および技術的コミュニケーションのみを目的とした、非臨床・非介入の要約です。
+
+観察設計
+- 対象者：成人ユーザー 20 名
+- 製品区分：栄養補助食品（食品グレード）
+- 使用期間：約 90 日
+- データ種別：自己申告による使用記録および定期的な健康診断結果
+- 測定指標：HbA1c（3 時点で測定）
+
+本要約は臨床試験に該当せず、診断・治療・予防の効果を示唆するものではありません。
+
+観察された傾向の要約
+観察期間を通じて、全参加者において 3 回の連続測定における HbA1c 値の一貫した低下傾向が確認されました。
+観察データの主な特徴は以下のとおりです。
+- 一貫性：観察期間中に持続的な上昇傾向を示した参加者はいませんでした
+- 連続性：変化は短期的に急激な変動としてではなく、段階を追って緩やかに生じました
+- 収束性：個別軌跡の分散は時間とともに比較的限定的でした
+
+集計的観点からは、グループ全体として一方向の均一な傾向が示され、ユーザーの安定した関与と、比較的同質な応答パターンが示唆されます。
+
+解釈（技術的観点）
+モデリングの観点から、ZOOOO フレームワークは以下を重視します。
+- 短期応答ではなく長期状態の推移
+- 代謝プロセスにまたがる多経路の相互作用
+- 単一の介入効果よりも構造安定性
+
+この概念枠組みにおいて、観察された傾向は、HbA1c の回転特性に整合する時間スケールにおける持続的な代謝サポートプロファイルと整合する可能性があります。
+ただし、因果関係を推定することはできず、機構的結論を確立するためには、さらなる対照化された研究が必要です。
+
+データの透明性および限界
+- サンプルサイズは限定的です
+- 対照群は設定されていません
+- 生活習慣要因は標準化されていません
+- データは実験条件ではなく、実使用条件を反映しています
+
+したがって、本結果は探索的・記述的なものとして解釈されるべきであり、検証的な結論ではありません。
+
+結論
+本段階別観察は、本製品が実使用条件下でどのように機能するかについての初期的な見取り図を提供します。
+観察された傾向の一貫性と方向性は、継続的な技術検証と将来の構造化された研究を支持するとともに、透明性と責任あるデータコミュニケーションに対する Os’ Lab のコミットメントを補強します。
+
+規制および使用上の免責事項
+本製品は食品グレードであり、医薬品ではありません。
+いかなる疾病の診断、治療、治癒、または予防を目的とするものではありません。
+ここに提示される情報は研究および情報提供のみを目的としており、医療上の助言とみなされるべきではありません。
+健康上の懸念がある方は、資格を有する医療専門職に相談してください。
+
+お問い合わせや技術的なご相談は、メールにてお気軽にご連絡ください。
+`,
+} as const;
 
 const MODEL_RELEASE_V061 = {
   slug: "research-preview-zoooo-betacell-expert-8b-v0-6-1",
   title: "ZOOOO-BetaCell-Expert-8B v0.6.1（研究プレビュー）公開のお知らせ",
   dateDisplay: "2026年1月10日",
   link: "https://huggingface.co/OsLab2025/ZOOOO-BetaCell-Expert-8B-v0.6.1",
-  bodyEn: `We have released ZOOOO-BetaCell-Expert-8B v0.6.1, a research-preview model focused on mechanistic reasoning in pancreatic β cell biology.
-
-This version emphasizes causality-first analysis, explicit boundary conditions, and structured mechanistic judgment, moving beyond pathway listing or descriptive summaries. v0.6.1 shows improved consistency in distinguishing correlation from causation and in reasoning about experimental relevance, making it suitable for hypothesis discussion and experimental design review.
-
-Limitations remain: response structure may not always fully converge on complex questions, long-horizon dialogue stability is still limited, and the model should not be used for clinical or production purposes. v0.6.1 represents a stable milestone toward our v1.0 goal of an expert-level scientific reasoning collaborator.
-`,
   bodyJa: `膵臓β細胞生物学における機構的推論に焦点を当てた研究プレビューモデルとして、ZOOOO-BetaCell-Expert-8B v0.6.1 を公開しました。
 
 本バージョンは、因果を起点とする分析、明示的な境界条件、構造化された機構的判断を重視し、経路の列挙や記述的要約を超えることを目指します。v0.6.1 では、相関と因果の識別、および実験的関連性に関する推論の一貫性が改善されており、仮説の議論および実験設計のレビューに適しています。
@@ -276,6 +331,7 @@ export default async function JaNewsDetailPage({
   const { slug } = await params;
 
   const publication = PUBLICATIONS.find((p) => p.slug === slug);
+  const isFeedbackSummary = slug === FEEDBACK_SUMMARY.slug;
   const isAnnouncement = slug === ANNOUNCEMENT.slug;
   const isNewYearsMessage = slug === NEW_YEARS_MESSAGE.slug;
   const isNewYearsMessage2026 = slug === NEW_YEARS_MESSAGE_2026.slug;
@@ -285,6 +341,8 @@ export default async function JaNewsDetailPage({
 
   const category: NewsCategory | null = publication
     ? "research"
+    : isFeedbackSummary
+      ? "product"
     : isModelReleaseV061
       ? "research"
     : isModelRelease || isModelReleaseV04
@@ -296,6 +354,8 @@ export default async function JaNewsDetailPage({
   const title = publication?.title
     ?? (isAnnouncement
       ? ANNOUNCEMENT.title
+      : isFeedbackSummary
+        ? FEEDBACK_SUMMARY.title
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.title
         : isModelReleaseV061
@@ -311,6 +371,8 @@ export default async function JaNewsDetailPage({
     publication?.date
     ?? (isAnnouncement
       ? ANNOUNCEMENT.date
+      : isFeedbackSummary
+        ? FEEDBACK_SUMMARY.dateDisplay
       : isNewYearsMessage2026
         ? NEW_YEARS_MESSAGE_2026.dateDisplay
         : isModelReleaseV061
@@ -333,6 +395,17 @@ export default async function JaNewsDetailPage({
           {date}
         </p>
       </div>
+
+      {isFeedbackSummary ? (
+        <div className="pt-8">
+          <Image
+            src={feedbackImage}
+            alt="ユーザーフィードバック要約"
+            className="h-auto w-full"
+            priority
+          />
+        </div>
+      ) : null}
 
       <Section title="詳細">
         {publication ? (
@@ -365,6 +438,16 @@ export default async function JaNewsDetailPage({
               </a>
             </p>
             <p className="text-neutral-700">本文は追って掲載します。</p>
+          </div>
+        ) : isFeedbackSummary ? (
+          <div className="space-y-6">
+            <p>
+              <span className="text-neutral-700">分類</span>
+              <br />
+              {categoryLabel(category ?? "product")}
+            </p>
+
+            <div>{renderParagraphs(FEEDBACK_SUMMARY.body)}</div>
           </div>
         ) : isModelReleaseV061 ? (
           <div className="space-y-6">
