@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import { Section } from "@/components/Section";
@@ -13,6 +14,28 @@ type FormState = {
   message: string;
 };
 
+type ApiErrorCode =
+  | "missing_or_invalid_category"
+  | "missing_required_fields"
+  | "invalid_email"
+  | "smtp_not_configured"
+  | "internal_error";
+
+function mapError(code: ApiErrorCode | string | undefined) {
+  switch (code) {
+    case "missing_required_fields":
+      return "必須項目を入力してください。";
+    case "missing_or_invalid_category":
+      return "お問い合わせ種別を選択してください。";
+    case "invalid_email":
+      return "正しいメールアドレスを入力してください。";
+    case "smtp_not_configured":
+      return "現在メール送信が利用できません。時間をおいてお試しください。";
+    default:
+      return "送信に失敗しました。時間をおいてお試しください。";
+  }
+}
+
 export default function JaContactPage() {
   const [form, setForm] = useState<FormState>({
     category: "research",
@@ -25,6 +48,7 @@ export default function JaContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const requiredMissing = useMemo(() => {
     return !form.name.trim() || !form.email.trim() || !form.message.trim() || !form.category;
@@ -32,19 +56,36 @@ export default function JaContactPage() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (requiredMissing || status === "sending") return;
+    if (status === "sending") return;
+
+    if (requiredMissing) {
+      setStatus("error");
+      setErrorMessage("必須項目を入力してください。");
+      return;
+    }
 
     setStatus("sending");
+    setErrorMessage(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, locale: "ja" }),
       });
-      if (!res.ok) throw new Error("Request failed");
+
+      const json = (await res.json().catch(() => null)) as
+        | { ok: true }
+        | { ok: false; error?: ApiErrorCode }
+        | null;
+
+      if (!res.ok || !json || ("ok" in json && json.ok !== true)) {
+        const code = json && "error" in json ? json.error : "unknown_error";
+        throw new Error(mapError(code));
+      }
       setStatus("sent");
-    } catch {
+    } catch (err) {
       setStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : mapError("unknown_error"));
     }
   }
 
@@ -60,7 +101,14 @@ export default function JaContactPage() {
         <p>
           お問い合わせいただいたお客さまの名前、住所、電話番号、お問い合わせ内容などの個人の情報は、
           お客さまのご同意がない限り、問い合わせの対応に限って使用いたします。
-          お客さまの個人情報のお取り扱いの詳しいご案内は、プライバシーポリシーをご覧ください。
+          お客さまの個人情報のお取り扱いの詳しいご案内は、{" "}
+          <Link
+            href="/ja/privacy"
+            className="underline decoration-black/20 hover:text-neutral-950"
+          >
+            プライバシーポリシー
+          </Link>
+          をご覧ください。
         </p>
         <p className="mt-6">
           ※ドメイン指定受信をしている場合「@oslab.co.jp」の許可設定をしてください。
@@ -141,7 +189,7 @@ export default function JaContactPage() {
             ) : null}
             {status === "error" ? (
               <p className="mt-4 text-sm text-neutral-800">
-                送信に失敗しました。時間をおいてお試しください。
+                {errorMessage ?? "送信に失敗しました。時間をおいてお試しください。"}
               </p>
             ) : null}
           </div>

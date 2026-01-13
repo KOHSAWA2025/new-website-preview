@@ -14,6 +14,20 @@ pnpm dev
 bun dev
 ```
 
+## Contact form (email delivery)
+
+The Contact form posts to `POST /api/contact`, which sends an email to **ohsawa@oslab.co.jp**.
+
+Email delivery requires SMTP credentials. For local development, create `./.env.local` based on `./.env.local.example` and set:
+
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
+- `CONTACT_FROM` (should typically match `SMTP_USER`)
+
+In production, configure the same environment variables in your hosting provider.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.

@@ -68,9 +68,11 @@ export async function POST(req: Request) {
     const port = process.env.SMTP_PORT;
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
-    const from = process.env.CONTACT_FROM || "no-reply@oslab.co.jp";
+    // Use a configured sender address; default to the authenticated SMTP user.
+    // Many SMTP providers will reject arbitrary "from" domains.
+    const from = process.env.CONTACT_FROM || user;
 
-    if (!host || !port || !user || !pass) {
+    if (!host || !port || !user || !pass || !from) {
       return NextResponse.json(
         { ok: false, error: "smtp_not_configured" },
         { status: 500 },
@@ -84,9 +86,13 @@ export async function POST(req: Request) {
       auth: { user, pass },
     });
 
+    // Fail fast if credentials / connectivity are invalid.
+    // (Does not log or store personal data.)
+    await transporter.verify();
+
     const submittedAt = new Date().toISOString();
 
-    const subject = `[Contact][${formatCategoryForSubject(categoryRaw)}] ${name}`;
+    const subject = `[Contact][${formatCategoryForSubject(categoryRaw)}][${locale.toUpperCase()}] ${name}`;
 
     const text = [
       `Inquiry Category: ${formatCategoryForSubject(categoryRaw)} (${categoryRaw})`,
@@ -104,7 +110,7 @@ export async function POST(req: Request) {
     ].join("\n");
 
     await transporter.sendMail({
-      to: "kenji@oslab.co.jp",
+      to: "ohsawa@oslab.co.jp",
       from,
       replyTo: email,
       subject,

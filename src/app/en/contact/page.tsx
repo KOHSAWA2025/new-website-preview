@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import { Section } from "@/components/Section";
@@ -13,6 +14,28 @@ type FormState = {
   message: string;
 };
 
+type ApiErrorCode =
+  | "missing_or_invalid_category"
+  | "missing_required_fields"
+  | "invalid_email"
+  | "smtp_not_configured"
+  | "internal_error";
+
+function mapError(code: ApiErrorCode | string | undefined) {
+  switch (code) {
+    case "missing_required_fields":
+      return "Please fill in all required fields.";
+    case "missing_or_invalid_category":
+      return "Please select an inquiry category.";
+    case "invalid_email":
+      return "Please enter a valid email address.";
+    case "smtp_not_configured":
+      return "Email delivery is temporarily unavailable. Please try again later.";
+    default:
+      return "Failed to send. Please try again later.";
+  }
+}
+
 export default function EnContactPage() {
   const [form, setForm] = useState<FormState>({
     category: "research",
@@ -25,6 +48,7 @@ export default function EnContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
   );
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const requiredMissing = useMemo(() => {
     return !form.name.trim() || !form.email.trim() || !form.message.trim() || !form.category;
@@ -32,19 +56,38 @@ export default function EnContactPage() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (requiredMissing || status === "sending") return;
+    if (status === "sending") return;
+
+    if (requiredMissing) {
+      setStatus("error");
+      setErrorMessage("Please fill in all required fields.");
+      return;
+    }
 
     setStatus("sending");
+    setErrorMessage(null);
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, locale: "en" }),
       });
-      if (!res.ok) throw new Error("Request failed");
+
+      const json = (await res.json().catch(() => null)) as
+        | { ok: true }
+        | { ok: false; error?: ApiErrorCode }
+        | null;
+
+      if (!res.ok || !json || ("ok" in json && json.ok !== true)) {
+        const code = json && "error" in json ? json.error : "unknown_error";
+        throw new Error(mapError(code));
+      }
+
       setStatus("sent");
-    } catch {
+    } catch (err) {
       setStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : "Failed to send.");
     }
   }
 
@@ -64,7 +107,14 @@ export default function EnContactPage() {
         </p>
         <p className="mt-6">
           For detailed information on how we handle personal data,
-          please refer to our Privacy Policy.
+          please refer to our{" "}
+          <Link
+            href="/en/privacy"
+            className="underline decoration-black/20 hover:text-neutral-950"
+          >
+            Privacy Policy
+          </Link>
+          .
         </p>
         <p className="mt-6">
           * If you use domain-specific email filtering,
@@ -79,7 +129,8 @@ export default function EnContactPage() {
         <form onSubmit={onSubmit} className="max-w-[720px] space-y-6">
           <label className="block">
             <div className="text-xs tracking-[0.22em] text-neutral-700">
-              Inquiry Category / お問い合わせ種別 <span className="ml-2 text-neutral-500">*</span>
+              Inquiry Category / お問い合わせ種別{" "}
+              <span className="ml-2 text-neutral-500">*</span>
             </div>
             <div className="mt-3 flex flex-col gap-3 text-sm text-neutral-900">
               {([
@@ -143,13 +194,11 @@ export default function EnContactPage() {
             </button>
 
             {status === "sent" ? (
-              <p className="mt-4 text-sm text-neutral-800">
-                Sent. We will reply by email.
-              </p>
+              <p className="mt-4 text-sm text-neutral-800">Sent. We will reply by email.</p>
             ) : null}
             {status === "error" ? (
               <p className="mt-4 text-sm text-neutral-800">
-                Failed to send. Please try again later.
+                {errorMessage ?? "Failed to send. Please try again later."}
               </p>
             ) : null}
           </div>
@@ -216,3 +265,4 @@ function Textarea({
     </label>
   );
 }
+
