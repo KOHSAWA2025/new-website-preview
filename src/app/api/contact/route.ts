@@ -35,6 +35,30 @@ function isValidEmail(email: string) {
   return /.+@.+\..+/.test(email);
 }
 
+export async function GET() {
+  // Health-check endpoint (no PII, no secrets).
+  // Useful to confirm production environment variables are wired correctly.
+  const host = process.env.SMTP_HOST;
+  const port = process.env.SMTP_PORT;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const from = process.env.CONTACT_FROM || user;
+
+  return NextResponse.json({
+    ok: true,
+    smtp: {
+      configured: Boolean(host && port && user && pass && from),
+      hasHost: Boolean(host),
+      hasPort: Boolean(port),
+      hasUser: Boolean(user),
+      hasPass: Boolean(pass),
+      hasFrom: Boolean(from),
+      // Expose only derived, non-sensitive values.
+      secure: Number(port) === 465,
+    },
+  });
+}
+
 export async function POST(req: Request) {
   try {
     const payload = (await req.json()) as Partial<ContactPayload>;

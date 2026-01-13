@@ -79,7 +79,7 @@ export default function JaPrivacyPolicyPage() {
         <p>
           個人情報の取扱いに関するお問い合わせは、以下までご連絡ください。
           <br />
-          <span className="text-neutral-800">ohsawa@oslab.co.jp</span>
+          <span className="text-neutral-800">contact@oslab.co.jp</span>
         </p>
       </Section>
 

@@ -83,7 +83,7 @@ export default function EnPrivacyPolicyPage() {
         <p>
           For privacy-related inquiries, please contact:
           <br />
-          <span className="text-neutral-800">ohsawa@oslab.co.jp</span>
+          <span className="text-neutral-800">contact@oslab.co.jp</span>
         </p>
       </Section>
 
