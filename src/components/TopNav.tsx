@@ -2,6 +2,7 @@
 
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useI18n } from '../i18n/useI18n'
@@ -27,11 +28,26 @@ function LangButton({ label, active, onClick }: { label: string; active: boolean
 export function TopNav() {
   const { t, locale, setLocale } = useI18n()
   const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
     return pathname === href || pathname?.startsWith(href + '/')
   }
+
+  useEffect(() => {
+    // Close the menu on navigation.
+    setOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    // Close on Escape (iPhone Safari compatible).
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color:var(--divider)] bg-[color:var(--bg)]/85 backdrop-blur">
@@ -43,7 +59,7 @@ export function TopNav() {
           </Link>
         </div>
 
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6">
           {t.nav.items.map((item) => (
             <Link
               key={item.href}
@@ -79,8 +95,43 @@ export function TopNav() {
             <span>{t.ui.productPlatformName}</span>
             <span className="opacity-70">→</span>
           </Link>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-[color:var(--divider)] bg-[color:var(--surface)] text-[color:var(--text)]"
+            aria-label="Open navigation menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="text-[18px] leading-none">{open ? '×' : '☰'}</span>
+          </button>
         </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {open ? (
+        <div className="md:hidden border-t border-[color:var(--divider)] bg-[color:var(--bg)]/95 backdrop-blur">
+          <div className="container-x py-2">
+            <nav aria-label="Mobile navigation" className="flex flex-col">
+              {t.nav.items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={
+                    'py-3 px-1 text-[14px] tracking-[0.02em] transition-colors ' +
+                    (isActive(item.href)
+                      ? 'text-[color:var(--text)]'
+                      : 'text-[color:var(--text-2)] hover:text-[color:var(--text)]')
+                  }
+                >
+                  <span className="block whitespace-normal break-words">{item.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+      ) : null}
     </header>
   )
 }
