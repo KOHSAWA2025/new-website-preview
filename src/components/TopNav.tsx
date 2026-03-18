@@ -1,4 +1,9 @@
-import { NavLink } from 'react-router-dom'
+/* eslint-disable react-refresh/only-export-components */
+
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useI18n } from '../i18n/useI18n'
 
 function LangButton({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
@@ -21,32 +26,37 @@ function LangButton({ label, active, onClick }: { label: string; active: boolean
 
 export function TopNav() {
   const { t, locale, setLocale } = useI18n()
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname === href || pathname?.startsWith(href + '/')
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color:var(--divider)] bg-[color:var(--bg)]/85 backdrop-blur">
       <div className="container-x h-16 flex items-center justify-between">
         <div className="flex items-center gap-5">
-          <NavLink to="/" className="flex items-baseline gap-2">
+          <Link href="/" className="flex items-baseline gap-2">
             <span className="font-semibold tracking-tighter">{t.ui.brandName}</span>
             <span className="kicker hidden sm:inline">{t.ui.brandTagline}</span>
-          </NavLink>
+          </Link>
         </div>
 
         <nav className="hidden lg:flex items-center gap-6">
           {t.nav.items.map((item) => (
-            <NavLink
+            <Link
               key={item.href}
-              to={item.href}
-              end={item.href === '/'}
-              className={({ isActive }) =>
+              href={item.href}
+              className={
                 'text-[13px] tracking-[0.02em] transition-colors ' +
-                (isActive
+                (isActive(item.href)
                   ? 'text-[color:var(--text)] border-b border-[color:var(--accent)] pb-1'
                   : 'text-[color:var(--text-2)] hover:text-[color:var(--text)]')
               }
             >
               {item.label}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
@@ -65,10 +75,10 @@ export function TopNav() {
             />
           </div>
 
-          <NavLink to="/platform" className="hidden sm:inline-flex btn-primary">
+          <Link href="/platform" className="hidden sm:inline-flex btn-primary">
             <span>{t.ui.productPlatformName}</span>
             <span className="opacity-70">→</span>
-          </NavLink>
+          </Link>
         </div>
       </div>
     </header>

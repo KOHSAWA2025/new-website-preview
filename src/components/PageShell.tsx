@@ -1,3 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
+
+'use client'
+
 import type { PropsWithChildren } from 'react'
 import { TopNav } from './TopNav'
 import { Footer } from './Footer'

@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/capabilities/page": "/capabilities",
+  "/page": "/",
+  "/platform/page": "/platform",
+  "/systems/biological/page": "/systems/biological",
+  "/systems/biological/virtual-cell/page": "/systems/biological/virtual-cell",
+  "/systems/financial/page": "/systems/financial",
+  "/systems/page": "/systems",
+  "/systems/public/page": "/systems/public",
+  "/systems/security/page": "/systems/security",
+  "/systems/supply/page": "/systems/supply",
+  "/technology/page": "/technology",
+  "/use-cases/page": "/use-cases"
+}

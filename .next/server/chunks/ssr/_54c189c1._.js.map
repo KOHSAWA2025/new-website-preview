@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../app/systems/biological/virtual-cell/page.tsx"],"sourcesContent":["import { redirect } from 'next/navigation'\n\nexport default function Page() {\n  redirect('/systems/biological')\n}\n"],"names":[],"mappings":"6KAAA,EAAA,CAAA,CAAA,OAAA,IAAA,EAAA,EAAA,CAAA,CAAA,OAEe,SAAS,IACtB,CAAA,EAAA,EAAA,QAAA,AAAQ,EAAC,sBACX"}

@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/systems/layout,_N_T_/systems/biological/layout,_N_T_/systems/biological/page,_N_T_/systems/biological"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/systems/biological/__PAGE__",
+    "/systems/biological",
+    "/systems",
+    "/_index",
+    "/_head"
+  ]
+}

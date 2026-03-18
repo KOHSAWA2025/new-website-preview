@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/capabilities/page": "app/capabilities/page.js",
+  "/page": "app/page.js",
+  "/platform/page": "app/platform/page.js",
+  "/systems/biological/page": "app/systems/biological/page.js",
+  "/systems/biological/virtual-cell/page": "app/systems/biological/virtual-cell/page.js",
+  "/systems/financial/page": "app/systems/financial/page.js",
+  "/systems/page": "app/systems/page.js",
+  "/systems/public/page": "app/systems/public/page.js",
+  "/systems/security/page": "app/systems/security/page.js",
+  "/systems/supply/page": "app/systems/supply/page.js",
+  "/technology/page": "app/technology/page.js",
+  "/use-cases/page": "app/use-cases/page.js"
+}
