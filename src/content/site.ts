@@ -58,6 +58,7 @@ export type SiteCopy = {
       publicSystemsCapabilities: string
       backToSystems: string
       viewCapabilities: string
+      viewDetails: string
     }
     footer: {
       locations: string
@@ -201,6 +202,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
         publicSystemsCapabilities: 'Public Systems Capabilities',
         backToSystems: 'Back to Systems',
         viewCapabilities: 'Explore',
+        viewDetails: 'View Details',
       },
       footer: {
         locations: 'Osaka (Headquarters) / Tokyo',
@@ -983,6 +985,7 @@ export const siteCopy: Record<Locale, SiteCopy> = {
         publicSystemsCapabilities: '公共システムの機能',
         backToSystems: 'システムへ戻る',
         viewCapabilities: '詳細',
+        viewDetails: '詳細を見る',
       },
       footer: {
         locations: '大阪（本社）/ 東京',

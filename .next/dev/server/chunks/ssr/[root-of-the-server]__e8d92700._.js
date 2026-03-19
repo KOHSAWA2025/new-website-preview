@@ -41,7 +41,8 @@ const siteCopy = {
             links: {
                 publicSystemsCapabilities: 'Public Systems Capabilities',
                 backToSystems: 'Back to Systems',
-                viewCapabilities: 'Explore'
+                viewCapabilities: 'Explore',
+                viewDetails: 'View Details'
             },
             footer: {
                 locations: 'Osaka (Headquarters) / Tokyo',
@@ -960,7 +961,8 @@ const siteCopy = {
             links: {
                 publicSystemsCapabilities: '公共システムの機能',
                 backToSystems: 'システムへ戻る',
-                viewCapabilities: '詳細'
+                viewCapabilities: '詳細',
+                viewDetails: '詳細を見る'
             },
             footer: {
                 locations: '大阪（本社）/ 東京',

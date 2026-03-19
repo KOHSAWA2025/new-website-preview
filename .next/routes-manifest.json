@@ -107,6 +107,12 @@
       "namedRegex": "^/technology(?:/)?$"
     },
     {
+      "page": "/technology/virtual-cell",
+      "regex": "^/technology/virtual\\-cell(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/technology/virtual\\-cell(?:/)?$"
+    },
+    {
       "page": "/use-cases",
       "regex": "^/use\\-cases(?:/)?$",
       "routeKeys": {},

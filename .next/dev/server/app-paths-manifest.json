@@ -1,4 +1,3 @@
 {
-  "/page": "app/page.js",
-  "/systems/security/page": "app/systems/security/page.js"
+  "/technology/virtual-cell/page": "app/technology/virtual-cell/page.js"
 }
