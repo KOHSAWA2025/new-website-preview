@@ -303,7 +303,7 @@ function TechnologyVirtualCellPage() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white leading-[1.6]",
-                                            children: "A mechanistic virtual Pancreatic β-cell simulation snapshot at step 672, showing spatial organization of metabolic, ionic, and signaling components."
+                                            children: "This figure shows a snapshot of the virtual pancreatic β-cell simulation at step 672, visualizing the spatial organization and interactions of metabolic, ionic, and signaling components. In this system, each simulation step corresponds to 1 second of real biological time, ensuring that the dynamics evolve on a physiologically consistent temporal scale."
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
                                             lineNumber: 194,
@@ -311,18 +311,18 @@ function TechnologyVirtualCellPage() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white leading-[1.6] mt-4",
-                                            children: "Each particle represents a biological entity (ATP, Ca²⁺, insulin granules, mitochondria), interacting within a unified dynamical system. No predefined cell fate rules are imposed."
+                                            children: "Each particle represents a biological entity (ATP, Ca²⁺, insulin granules, mitochondria), interacting continuously within a unified dynamical system. No external rules or predefined triggers governing cell fate are imposed. As a result, the virtual cell evolves purely from intrinsic biochemical interactions and naturally transitions to apoptosis under sustained ER stress conditions."
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 199,
+                                            lineNumber: 200,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white leading-[1.6] mt-4",
-                                            children: "The system evolves purely from internal biochemical interactions, eventually leading to apoptosis under sustained ER stress conditions."
+                                            children: "Importantly, across multiple independent simulation runs, apoptosis consistently emerges at approximately 2320 steps (~40 minutes), demonstrating strong reproducibility and aligning closely with experimentally observed timescales of acute ER-stress–induced apoptosis. This indicates that the model captures underlying biological causality, rather than merely reproducing surface-level behavior."
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 204,
+                                            lineNumber: 206,
                                             columnNumber: 17
                                         }, this)
                                     ]
@@ -346,7 +346,7 @@ function TechnologyVirtualCellPage() {
                             children: "Apoptosis is not programmed. It emerges."
                         }, void 0, false, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 211,
+                            lineNumber: 214,
                             columnNumber: 13
                         }, this)
                     ]
@@ -365,7 +365,7 @@ function TechnologyVirtualCellPage() {
                             children: "創発するβ細胞ダイナミクスの可視化"
                         }, void 0, false, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 218,
+                            lineNumber: 221,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -379,12 +379,12 @@ function TechnologyVirtualCellPage() {
                                         className: "w-full h-auto max-w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                        lineNumber: 224,
+                                        lineNumber: 227,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 223,
+                                    lineNumber: 226,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -392,38 +392,38 @@ function TechnologyVirtualCellPage() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white leading-[1.6]",
-                                            children: "本図はステップ672における仮想膵β細胞シミュレーションのスナップショットであり、 代謝・イオン・シグナル分子の空間的分布と相互作用を示しています。"
+                                            children: "本図はステップ672時点における仮想膵β細胞シミュレーションのスナップショットであり、代謝・イオン・シグナル分子の空間的分布および相互作用を可視化したものです。 本システムでは、1ステップが実時間の1秒に対応しており、シミュレーションは生体スケールと整合した時間ダイナミクス上で進行します。"
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 232,
+                                            lineNumber: 235,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white leading-[1.6] mt-4",
-                                            children: "各粒子はATP、Ca²⁺、インスリン顆粒、ミトコンドリアなどの生体要素を表し、 統一された動的システムの中で相互作用しています。 細胞運命に関する外部的なルールは一切与えられていません。"
+                                            children: "各粒子はATP、Ca²⁺、インスリン顆粒、ミトコンドリアなどの生体要素を表し、統一された動的システム内で連続的に相互作用しています。細胞運命に関する外部的なルールや人工的なトリガーは一切導入されていません。 その結果として、本仮想細胞は内在的な生化学的相互作用のみに基づいて進化し、持続的なERストレス条件下において自然にアポトーシスへと遷移します。"
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 237,
+                                            lineNumber: 241,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-white leading-[1.6] mt-4",
-                                            children: "本システムは内在的な生化学的相互作用のみに基づいて進化し、 持続的なERストレス条件下において自然にアポトーシスへと遷移します。"
+                                            children: "重要な点として、複数回の独立したシミュレーションにおいても、アポトーシスの発現は一貫して約2320ステップ（約40分）前後で観測されており、これは実験的に知られる急性ERストレス誘導アポトーシスの時間スケールと高い再現性をもって一致します。 これは、本モデルが単なる挙動の再現ではなく、生物学的因果構造そのものを捉えていることを示しています。"
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 243,
+                                            lineNumber: 247,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 231,
+                                    lineNumber: 234,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 222,
+                            lineNumber: 225,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -435,13 +435,13 @@ function TechnologyVirtualCellPage() {
                             children: "アポトーシスはプログラムされたものではない。創発する。"
                         }, void 0, false, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 250,
+                            lineNumber: 255,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                    lineNumber: 217,
+                    lineNumber: 220,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
@@ -460,12 +460,12 @@ function TechnologyVirtualCellPage() {
                                 children: c.statement.kicker
                             }, void 0, false, {
                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                lineNumber: 261,
+                                lineNumber: 266,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 260,
+                            lineNumber: 265,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -482,12 +482,12 @@ function TechnologyVirtualCellPage() {
                                                         children: ln
                                                     }, ln, false, {
                                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                        lineNumber: 269,
+                                                        lineNumber: 274,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                lineNumber: 267,
+                                                lineNumber: 272,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -496,23 +496,23 @@ function TechnologyVirtualCellPage() {
                                                         children: p
                                                     }, p, false, {
                                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                        lineNumber: 274,
+                                                        lineNumber: 279,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                lineNumber: 272,
+                                                lineNumber: 277,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                        lineNumber: 266,
+                                        lineNumber: 271,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 265,
+                                    lineNumber: 270,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Reveal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Reveal"], {
@@ -526,7 +526,7 @@ function TechnologyVirtualCellPage() {
                                                 children: c.scientific.kicker
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                lineNumber: 282,
+                                                lineNumber: 287,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -534,7 +534,7 @@ function TechnologyVirtualCellPage() {
                                                 children: c.scientific.headline
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                lineNumber: 283,
+                                                lineNumber: 288,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -543,40 +543,40 @@ function TechnologyVirtualCellPage() {
                                                         children: p
                                                     }, p, false, {
                                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                        lineNumber: 286,
+                                                        lineNumber: 291,
                                                         columnNumber: 21
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                lineNumber: 284,
+                                                lineNumber: 289,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                        lineNumber: 281,
+                                        lineNumber: 286,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 285,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 264,
+                            lineNumber: 269,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                    lineNumber: 259,
+                    lineNumber: 264,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                lineNumber: 258,
+                lineNumber: 263,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -591,7 +591,7 @@ function TechnologyVirtualCellPage() {
                                     children: c.highlights.kicker
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 299,
+                                    lineNumber: 304,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -599,13 +599,13 @@ function TechnologyVirtualCellPage() {
                                     children: c.highlights.headline
                                 }, void 0, false, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 300,
+                                    lineNumber: 305,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 298,
+                            lineNumber: 303,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -619,22 +619,22 @@ function TechnologyVirtualCellPage() {
                                             children: it
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 307,
+                                            lineNumber: 312,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                        lineNumber: 306,
+                                        lineNumber: 311,
                                         columnNumber: 17
                                     }, this)
                                 }, it, false, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 310,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 303,
+                            lineNumber: 308,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Reveal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Reveal"], {
@@ -644,23 +644,23 @@ function TechnologyVirtualCellPage() {
                                 children: c.highlights.note
                             }, void 0, false, {
                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                lineNumber: 314,
+                                lineNumber: 319,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                            lineNumber: 313,
+                            lineNumber: 318,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                    lineNumber: 297,
+                    lineNumber: 302,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                lineNumber: 296,
+                lineNumber: 301,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -680,7 +680,7 @@ function TechnologyVirtualCellPage() {
                                             children: c.structure.kicker
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 325,
+                                            lineNumber: 330,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -688,7 +688,7 @@ function TechnologyVirtualCellPage() {
                                             children: c.structure.headline
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 326,
+                                            lineNumber: 331,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -701,36 +701,36 @@ function TechnologyVirtualCellPage() {
                                                             children: "—"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                            lineNumber: 330,
+                                                            lineNumber: 335,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: m
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                            lineNumber: 331,
+                                                            lineNumber: 336,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, m, true, {
                                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 334,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 327,
+                                            lineNumber: 332,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 324,
+                                    lineNumber: 329,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                lineNumber: 323,
+                                lineNumber: 328,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Reveal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Reveal"], {
@@ -744,7 +744,7 @@ function TechnologyVirtualCellPage() {
                                             children: c.impact.kicker
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 340,
+                                            lineNumber: 345,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -752,7 +752,7 @@ function TechnologyVirtualCellPage() {
                                             children: c.impact.headline
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 341,
+                                            lineNumber: 346,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -761,12 +761,12 @@ function TechnologyVirtualCellPage() {
                                                     children: line
                                                 }, line, false, {
                                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 349,
                                                     columnNumber: 21
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 342,
+                                            lineNumber: 347,
                                             columnNumber: 17
                                         }, this),
                                         c.impact.bullets.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -779,52 +779,52 @@ function TechnologyVirtualCellPage() {
                                                             children: "—"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                            lineNumber: 351,
+                                                            lineNumber: 356,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: b
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                            lineNumber: 352,
+                                                            lineNumber: 357,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, b, true, {
                                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                                    lineNumber: 350,
+                                                    lineNumber: 355,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                            lineNumber: 348,
+                                            lineNumber: 353,
                                             columnNumber: 19
                                         }, this) : null
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                    lineNumber: 339,
+                                    lineNumber: 344,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                lineNumber: 338,
+                                lineNumber: 343,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                        lineNumber: 322,
+                        lineNumber: 327,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                    lineNumber: 321,
+                    lineNumber: 326,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                lineNumber: 320,
+                lineNumber: 325,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -837,7 +837,7 @@ function TechnologyVirtualCellPage() {
                                 children: c.vision.kicker
                             }, void 0, false, {
                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                lineNumber: 367,
+                                lineNumber: 372,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -845,23 +845,23 @@ function TechnologyVirtualCellPage() {
                                 children: c.vision.headline
                             }, void 0, false, {
                                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                                lineNumber: 368,
+                                lineNumber: 373,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                        lineNumber: 366,
+                        lineNumber: 371,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                    lineNumber: 365,
+                    lineNumber: 370,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/views/TechnologyVirtualCell.tsx",
-                lineNumber: 364,
+                lineNumber: 369,
                 columnNumber: 7
             }, this)
         ]

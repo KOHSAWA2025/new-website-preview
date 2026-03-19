@@ -192,18 +192,21 @@ export function TechnologyVirtualCellPage() {
 
               <div className="w-full md:flex-1 text-left max-w-[800px]">
                 <p className="text-white leading-[1.6]">
-                  A mechanistic virtual Pancreatic β-cell simulation snapshot at step 672, showing spatial
-                  organization of metabolic, ionic, and signaling components.
+                  This figure shows a snapshot of the virtual pancreatic β-cell simulation at step 672, visualizing the spatial organization and interactions of metabolic, ionic, and signaling components.
+
+                  In this system, each simulation step corresponds to 1 second of real biological time, ensuring that the dynamics evolve on a physiologically consistent temporal scale.
                 </p>
 
                 <p className="text-white leading-[1.6] mt-4">
-                  Each particle represents a biological entity (ATP, Ca²⁺, insulin granules, mitochondria),
-                  interacting within a unified dynamical system. No predefined cell fate rules are imposed.
+                  Each particle represents a biological entity (ATP, Ca²⁺, insulin granules, mitochondria), interacting continuously within a unified dynamical system. No external rules or predefined triggers governing cell fate are imposed.
+
+                  As a result, the virtual cell evolves purely from intrinsic biochemical interactions and naturally transitions to apoptosis under sustained ER stress conditions.
                 </p>
 
                 <p className="text-white leading-[1.6] mt-4">
-                  The system evolves purely from internal biochemical interactions, eventually leading to
-                  apoptosis under sustained ER stress conditions.
+                  Importantly, across multiple independent simulation runs, apoptosis consistently emerges at approximately 2320 steps (~40 minutes), demonstrating strong reproducibility and aligning closely with experimentally observed timescales of acute ER-stress–induced apoptosis.
+
+                  This indicates that the model captures underlying biological causality, rather than merely reproducing surface-level behavior.
                 </p>
               </div>
             </div>
@@ -230,19 +233,21 @@ export function TechnologyVirtualCellPage() {
 
               <div className="w-full md:flex-1 text-left max-w-[800px]">
                 <p className="text-white leading-[1.6]">
-                  本図はステップ672における仮想膵β細胞シミュレーションのスナップショットであり、
-                  代謝・イオン・シグナル分子の空間的分布と相互作用を示しています。
+                  本図はステップ672時点における仮想膵β細胞シミュレーションのスナップショットであり、代謝・イオン・シグナル分子の空間的分布および相互作用を可視化したものです。
+
+                  本システムでは、1ステップが実時間の1秒に対応しており、シミュレーションは生体スケールと整合した時間ダイナミクス上で進行します。
                 </p>
 
                 <p className="text-white leading-[1.6] mt-4">
-                  各粒子はATP、Ca²⁺、インスリン顆粒、ミトコンドリアなどの生体要素を表し、
-                  統一された動的システムの中で相互作用しています。
-                  細胞運命に関する外部的なルールは一切与えられていません。
+                  各粒子はATP、Ca²⁺、インスリン顆粒、ミトコンドリアなどの生体要素を表し、統一された動的システム内で連続的に相互作用しています。細胞運命に関する外部的なルールや人工的なトリガーは一切導入されていません。
+
+                  その結果として、本仮想細胞は内在的な生化学的相互作用のみに基づいて進化し、持続的なERストレス条件下において自然にアポトーシスへと遷移します。
                 </p>
 
                 <p className="text-white leading-[1.6] mt-4">
-                  本システムは内在的な生化学的相互作用のみに基づいて進化し、
-                  持続的なERストレス条件下において自然にアポトーシスへと遷移します。
+                  重要な点として、複数回の独立したシミュレーションにおいても、アポトーシスの発現は一貫して約2320ステップ（約40分）前後で観測されており、これは実験的に知られる急性ERストレス誘導アポトーシスの時間スケールと高い再現性をもって一致します。
+
+                  これは、本モデルが単なる挙動の再現ではなく、生物学的因果構造そのものを捉えていることを示しています。
                 </p>
               </div>
             </div>
