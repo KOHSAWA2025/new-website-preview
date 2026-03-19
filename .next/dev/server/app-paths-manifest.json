@@ -1,3 +1,5 @@
 {
-  "/technology/virtual-cell/page": "app/technology/virtual-cell/page.js"
+  "/technology/page": "app/technology/page.js",
+  "/technology/virtual-cell/page": "app/technology/virtual-cell/page.js",
+  "/use-cases/page": "app/use-cases/page.js"
 }

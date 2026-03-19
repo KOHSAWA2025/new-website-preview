@@ -173,6 +173,87 @@ export function TechnologyVirtualCellPage() {
         </div>
       </section>
 
+      <section style={{ marginTop: '60px', textAlign: 'center' }}>
+        {locale === 'en' ? (
+          /* English Section */
+          <div style={{ marginBottom: '60px' }}>
+            <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '16px' }}>
+              Emergent Pancreatic β-Cell State Visualization
+            </h2>
+
+            <div className="mx-auto mt-6 flex flex-col md:flex-row items-start justify-center gap-10">
+              <div className="flex-shrink-0 w-full max-w-[320px] md:max-w-[420px]">
+                <img
+                  src="/vcpic1.png"
+                  alt="Virtual β-cell simulation"
+                  className="w-full h-auto max-w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
+                />
+              </div>
+
+              <div className="w-full md:flex-1 text-left max-w-[800px]">
+                <p className="text-white leading-[1.6]">
+                  A mechanistic virtual Pancreatic β-cell simulation snapshot at step 672, showing spatial
+                  organization of metabolic, ionic, and signaling components.
+                </p>
+
+                <p className="text-white leading-[1.6] mt-4">
+                  Each particle represents a biological entity (ATP, Ca²⁺, insulin granules, mitochondria),
+                  interacting within a unified dynamical system. No predefined cell fate rules are imposed.
+                </p>
+
+                <p className="text-white leading-[1.6] mt-4">
+                  The system evolves purely from internal biochemical interactions, eventually leading to
+                  apoptosis under sustained ER stress conditions.
+                </p>
+              </div>
+            </div>
+
+            <p style={{ fontSize: '20px', fontWeight: '600', marginTop: '20px' }}>
+              Apoptosis is not programmed. It emerges.
+            </p>
+          </div>
+        ) : (
+          /* Japanese Section */
+          <div>
+            <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '16px' }}>
+              創発するβ細胞ダイナミクスの可視化
+            </h2>
+
+            <div className="mx-auto mt-6 flex flex-col md:flex-row items-start justify-center gap-10">
+              <div className="flex-shrink-0 w-full max-w-[320px] md:max-w-[420px]">
+                <img
+                  src="/vcpic1.png"
+                  alt="仮想膵β細胞シミュレーション"
+                  className="w-full h-auto max-w-full object-contain rounded-xl shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
+                />
+              </div>
+
+              <div className="w-full md:flex-1 text-left max-w-[800px]">
+                <p className="text-white leading-[1.6]">
+                  本図はステップ672における仮想膵β細胞シミュレーションのスナップショットであり、
+                  代謝・イオン・シグナル分子の空間的分布と相互作用を示しています。
+                </p>
+
+                <p className="text-white leading-[1.6] mt-4">
+                  各粒子はATP、Ca²⁺、インスリン顆粒、ミトコンドリアなどの生体要素を表し、
+                  統一された動的システムの中で相互作用しています。
+                  細胞運命に関する外部的なルールは一切与えられていません。
+                </p>
+
+                <p className="text-white leading-[1.6] mt-4">
+                  本システムは内在的な生化学的相互作用のみに基づいて進化し、
+                  持続的なERストレス条件下において自然にアポトーシスへと遷移します。
+                </p>
+              </div>
+            </div>
+
+            <p style={{ fontSize: '20px', fontWeight: '600', marginTop: '20px' }}>
+              アポトーシスはプログラムされたものではない。創発する。
+            </p>
+          </div>
+        )}
+      </section>
+
       {/* STATEMENT */}
       <section className="border-b border-[color:var(--divider)]">
         <div className="container-x py-16 md:py-24">
